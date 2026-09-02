@@ -11,6 +11,16 @@ const Bookshelf = () => {
     author: '',
   });
 
+  const handleInputChange = (event) => {
+    setNewBook({ ...newBook, [event.target.name]: event.target.value });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setBooks([...books, newBook]);
+    setNewBook({ title: '', author: '' });
+  };
+
   return (
     <div className="bookshelfDiv">
       <div className="formDiv">
